@@ -1,4 +1,4 @@
-# PostgreSQL. Versions 8.2 and up are supported.
+# PostgreSQL. Versions 9.2 and up are supported.
 #
 # Configure Using Gemfile
 # gem 'activerecord-jdbcpostgresql-adapter'
@@ -7,7 +7,7 @@ development:
   adapter: postgresql
   encoding: unicode
   database: torquebox_rails_sample_development
-  username: torquebox_rails_sample
+  username: <%= ENV['USER'] %>
   password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
@@ -32,7 +32,7 @@ test:
   adapter: postgresql
   encoding: unicode
   database: torquebox_rails_sample_test
-  username: torquebox_rails_sample
+  username: <%= ENV['USER'] %>
   password:
 
 production:

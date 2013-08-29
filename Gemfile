@@ -7,7 +7,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.0'
 
 # Use jdbcpostgresql as the database for Active Record
-gem 'activerecord-jdbcpostgresql-adapter'
+gem 'activerecord-jdbcpostgresql-adapter', '~> 1.3.0.rc1'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
