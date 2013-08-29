@@ -1,3 +1,6 @@
+#ruby=jruby-1.7.4
+ruby '1.9.3', :engine => 'jruby', :engine_version => '1.7.4'
+
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
