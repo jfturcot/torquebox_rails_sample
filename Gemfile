@@ -44,7 +44,19 @@ end
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
+group :development, :production do
+  gem "torquebox",        "3.0.0.beta2"
+end
+
+group :development do
+  gem "torquebox-server", "3.0.0.beta2"
+end
+
 group :development, :test do
   gem "rspec-rails",      "~> 2.0"
+end
+
+group :test do
+  gem "torquebox-no-op",  "3.0.0.beta2"
 end
 
