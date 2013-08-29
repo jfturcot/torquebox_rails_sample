@@ -5,7 +5,7 @@ server "10.10.10.11", :web, :app, :db, primary: true
 
 set :application,       "torquebox_rails_sample"
 set :user,              "torquebox"
-set :deploy_to,         "/home/#{user}/apps/concert_hall"
+set :deploy_to,         "/home/#{user}/apps/#{application}"
 set :deploy_via,        :remote_cache
 set :use_sudo,          false
 
