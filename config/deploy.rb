@@ -9,7 +9,7 @@ server ENV['OPENSHIFT_HOST'], :web, :app, :db, primary: true
 
 set :application,       "torquebox_rails_sample"
 set :user,              ENV['OPENSHIFT_USER']
-set :deploy_to,         "/var/lib/openshift/#{user}/app-root/data/apps/concert_hall"
+set :deploy_to,         "/var/lib/openshift/#{user}/app-root/data/apps/#{application}"
 set :deploy_via,        :remote_cache
 set :use_sudo,          false
 
