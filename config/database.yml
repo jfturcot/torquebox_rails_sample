@@ -36,9 +36,11 @@ test:
   password:
 
 production:
-  adapter: postgresql
+  adapter:  postgresql
   encoding: unicode
-  database: torquebox_rails_sample_production
-  username: torquebox_rails_sample
-  password:
-  host:     "10.10.10.21"
+  pool:     5
+  database: <%= ENV['POSTGRESQL_DB'] %>
+  username: <%= ENV['POSTGRESQL_USER'] %>
+  password: <%= ENV['POSTGRESQL_PW'] %>
+  host:     <%= ENV['POSTGRESQL_HOST'] %>
+  port:     5432

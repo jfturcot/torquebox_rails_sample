@@ -52,6 +52,7 @@ group :development do
   gem "torquebox-server", "3.0.0"
   gem "capistrano"
   gem "torquebox-capistrano-support", "3.0.0"
+  gem "dotenv"
 end
 
 group :development, :test do
