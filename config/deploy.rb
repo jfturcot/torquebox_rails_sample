@@ -46,7 +46,28 @@ namespace :deploy do
 
   end
 
+  desc "Upload database.yml"
+  task :config_upload, roles: :app do
+    db_str = ERB.new(File.read("config/database.yml")).result
+    db_file = "#{shared_path}/database.yml"
+    put db_str, db_file
+  end
+
+  desc "Symlink database.yml"
+  task :config_symlink, roles: :app do
+    run "ln -nfs #{shared_path}/database.yml #{release_path}/config/database.yml"
+  end
 end
 
+namespace :dotenv do
+  desc "Upload local .env"
+  task :upload, roles: :app do
+    top.upload(".env", File.join(shared_path, ".env"), :via => :scp)
+  end
+end
+
+after "deploy:setup","deploy:config_upload"
+after "deploy:setup","dotenv:upload"
+after "deploy:update_code","deploy:config_symlink"
 after "deploy", "deploy:cleanup"
 
