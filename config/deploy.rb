@@ -26,6 +26,10 @@ set :app_host,          "torquebox-rails-sample.site"
 default_run_options[:pty]   = true
 ssh_options[:forward_agent] = true
 
+set :default_environment, {
+  'PATH' => "#{torquebox_home}/jruby/bin:$PATH"
+}
+
 namespace :deploy do
 
   namespace :torquebox do
