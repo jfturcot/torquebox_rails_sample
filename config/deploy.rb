@@ -30,6 +30,8 @@ set :default_environment, {
   'PATH' => "#{torquebox_home}/jruby/bin:$PATH"
 }
 
+set :jruby_opts,        lambda{ "-J-Xmx256m " }
+
 namespace :deploy do
 
   namespace :torquebox do
