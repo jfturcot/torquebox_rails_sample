@@ -34,6 +34,16 @@ set :jruby_opts,        lambda{ "-J-Xmx256m " }
 
 namespace :deploy do
 
+  desc "Start Application"
+  task :start, :except => { :no_release => true } do
+    run "touch #{jboss_home}/standalone/deployments/#{torquebox_app_name}-knob.yml.dodeploy"
+  end
+
+  desc "Restart Application"
+  task :restart, :except => { :no_release => true } do
+    run "touch #{release_path}/tmp/restart.txt"
+  end
+
   namespace :torquebox do
 
     task :deployment_descriptor, :except => { :no_release => true } do
