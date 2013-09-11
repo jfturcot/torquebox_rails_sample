@@ -67,6 +67,7 @@ namespace :deploy do
     db_str = ERB.new(File.read("config/database.yml")).result
     db_file = "#{shared_path}/database.yml"
     put db_str, db_file
+    run "chmod 600 #{db_file}"
   end
 
   desc "Symlink database.yml"
@@ -79,6 +80,7 @@ namespace :dotenv do
   desc "Upload local .env"
   task :upload, roles: :app do
     top.upload(".env", File.join(shared_path, ".env"), :via => :scp)
+    run "chmod 600 #{shared_path}/.env"
   end
 end
 
